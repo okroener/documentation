@@ -2,8 +2,12 @@
 ## Install Apache 2.x
 ```bash
 sudo apt-get install apache2
-> Enable mod-rewrite
 ```
+### Enable mod-rewrite and headers
+```bash
+sudo a2endmod rewrite
+sudo a2enmod headers
+``` 
 ### Settings in php.ini
 ```
 max_execution_time = 240
@@ -39,8 +43,13 @@ sudo apt-get install mariadb-server
 sudo apt-get install mariadb-client
 ```
 ## Certbot for Letsencrypt
+### Install
 ```bash
 sudo snap install core; sudo snap refresh core
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
+```
+### Create virtual host for Apache
+```bash
+sudo certbot --apache -d {domain}
 ```
